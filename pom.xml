@@ -14,8 +14,8 @@
 	<version>0.1.0-SNAPSHOT</version>
 
 	<name>SciJava I/O: HTTP</name>
-	<description>Handles for remote HTTP(S)</description>
-	<url>https://github.com/scijava/scijava-handles-http</url>
+	<description>SciJava I/O support for HTTP/HTTPS.</description>
+	<url>https://github.com/scijava/scijava-io-http</url>
 	<inceptionYear>2017</inceptionYear>
 	<organization>
 		<name>SciJava</name>
@@ -96,8 +96,8 @@
 	<properties>
 		<package-name>org.scijava.io.http</package-name>
 		<license.licenseName>bsd_2</license.licenseName>
-		<license.copyrightOwners>University of Konstanz and Board of Regents
-of the University of Wisconsin-Madison.</license.copyrightOwners>
+		<license.copyrightOwners>KNIME GmbH and Board of Regents of the University
+of Wisconsin-Madison.</license.copyrightOwners>
 
 		<scijava-common.version>2.65.0</scijava-common.version>
 		<okhttp.version>3.6.0</okhttp.version>
