@@ -128,7 +128,7 @@ public class HTTPHandleTest extends DataHandleTest {
 	public void testDataHandleRemote() throws IOException, URISyntaxException {
 
 		final Location loc = new HTTPLocation(
-			"https://github.com/scijava/scijava-handles-http/blob/master/src/test/resources/testfile?raw=true");
+			"https://github.com/scijava/scijava-io-http/blob/master/src/test/resources/testfile?raw=true");
 
 		try (final DataHandle<? extends Location> handle = dataHandleService.create(
 			loc))
