@@ -179,8 +179,10 @@ public class HTTPHandle extends AbstractSeekableStreamHandle<HTTPLocation> {
 				serverCanResume = true;
 			}
 			else {
-				throw new IOException("HTTP connection failure, errorcode: " + result
-					.code());
+				final int code = result.code();
+				// We set this to null to ensure we will try again later
+				this.result = null;
+				throw new IOException("HTTP connection failure, errorcode: " + code);
 			}
 		}
 		return result;
