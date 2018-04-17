@@ -34,6 +34,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 
 import org.scijava.io.location.AbstractRemoteLocation;
@@ -135,5 +136,14 @@ public class HTTPLocation extends AbstractRemoteLocation {
 	@Override
 	public URI getURI() {
 		return url.uri();
+	}
+
+	/**
+	 * @return the last path element
+	 */
+	@Override
+	public String getName() {
+		final List<String> segs = url.pathSegments();
+		return segs.get(segs.size() - 1);
 	}
 }
