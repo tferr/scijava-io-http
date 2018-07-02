@@ -222,8 +222,8 @@ public class HTTPHandle extends AbstractSeekableStreamHandle<HTTPLocation> {
 				// counts the number of responses (previous tries
 				private boolean aboveMaxRetries(final Response response) {
 					int rescount = 1;
-					Response r;
-					while ((r = response.priorResponse()) != null &&
+					Response r = response;
+					while ((r = r.priorResponse()) != null &&
 						rescount < MAX_RETRIES)
 					{
 						rescount++;
