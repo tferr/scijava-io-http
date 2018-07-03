@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>scijava-io-http</artifactId>
-	<version>0.1.2-SNAPSHOT</version>
+	<version>0.1.3-SNAPSHOT</version>
 
 	<name>SciJava I/O: HTTP</name>
 	<description>SciJava I/O support for HTTP/HTTPS.</description>
