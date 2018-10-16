@@ -37,7 +37,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
@@ -55,12 +54,8 @@ import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.util.security.Constraint;
 import org.junit.After;
 import org.junit.Test;
-import org.scijava.Context;
 import org.scijava.io.handle.DataHandle;
-import org.scijava.io.handle.DataHandleService;
 import org.scijava.io.handle.DataHandleTest;
-import org.scijava.io.http.HTTPHandle;
-import org.scijava.io.http.HTTPLocation;
 import org.scijava.io.location.Location;
 
 /**
@@ -72,10 +67,6 @@ import org.scijava.io.location.Location;
 public class HTTPHandleTest extends DataHandleTest {
 
 	private Server server;
-
-	final Context context = new Context(DataHandleService.class);
-	final DataHandleService dataHandleService = context.service(
-		DataHandleService.class);
 
 	@After
 	public void tearDown() throws Exception {
@@ -91,52 +82,17 @@ public class HTTPHandleTest extends DataHandleTest {
 
 	@Override
 	public Location createLocation() throws IOException {
-		// create and populate a temp file
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * Tests the handle with default settings.
-	 */
-	@Override
-	@Test
-	public void testDataHandle() throws IOException {
-
-		Location loc;
 		try {
-			loc = createAdvancedServer();
+			return createAdvancedServer();
 		}
 		catch (final Exception exc) {
 			throw new IOException(exc);
 		}
-
-		try (final DataHandle<? extends Location> handle = dataHandleService.create(
-			loc))
-		{
-			assertEquals(getExpectedHandleType(), handle.getClass());
-			checkReads(handle);
-		}
-
 	}
 
-	/**
-	 * Tests the handle with a file located on Github
-	 *
-	 * @throws URISyntaxException
-	 */
-	@Test(timeout = 10000)
-	public void testDataHandleRemote() throws IOException, URISyntaxException {
-
-		final Location loc = new HTTPLocation(
-			"https://github.com/scijava/scijava-io-http/blob/master/src/test/resources/testfile?raw=true");
-
-		try (final DataHandle<? extends Location> handle = dataHandleService.create(
-			loc))
-		{
-			assertEquals(getExpectedHandleType(), handle.getClass());
-
-			checkReads(handle);
-		}
+	@Override
+	public void testWriting() throws IOException {
+		// NB: Handle does not support writing; do not test anything.
 	}
 
 	@Test
@@ -149,7 +105,8 @@ public class HTTPHandleTest extends DataHandleTest {
 		{
 			assertEquals(getExpectedHandleType(), handle.getClass());
 
-			checkReads(handle);
+			checkBasicReadMethods(handle, true);
+			checkEndiannessReading(handle);
 		}
 		server.stop();
 
