@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>scijava-io-http</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.2.0</version>
 
 	<name>SciJava I/O: HTTP</name>
 	<description>SciJava I/O support for HTTP/HTTPS.</description>
@@ -80,7 +80,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/scijava/scijava-io-http</connection>
 		<developerConnection>scm:git:git@github.com:scijava/scijava-io-http</developerConnection>
-		<tag>HEAD</tag>
+		<tag>scijava-io-http-0.2.0</tag>
 		<url>https://github.com/scijava/scijava-io-http</url>
 	</scm>
 	<issueManagement>
