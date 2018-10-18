@@ -37,6 +37,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
@@ -130,6 +131,15 @@ public class HTTPHandleTest extends DataHandleTest {
 				fail("Wrong exception message: " + e.getMessage());
 			}
 		}
+	}
+
+	@Test(timeout=15_000)
+	public void testRemoteReading() throws URISyntaxException, IOException {
+		DataHandle<Location> handle = dataHandleService.readBuffer(new HTTPLocation(
+			"https://github.com/scijava/scijava-io-http/raw/master/src/test/resources/testfile"));
+
+		checkBasicReadMethods(handle, true);
+		checkEndiannessReading(handle);
 	}
 
 	/**
