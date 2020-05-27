@@ -37,8 +37,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.junit.Test;
-import org.scijava.io.http.HTTPLocation;
-
 import okhttp3.HttpUrl;
 
 /**
