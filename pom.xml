@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.scijava</groupId>
 		<artifactId>pom-scijava</artifactId>
-		<version>26.0.0</version>
+		<version>28.0.0</version>
 		<relativePath />
 	</parent>
 
@@ -98,8 +98,7 @@
 		<license.copyrightOwners>KNIME GmbH and Board of Regents of the University
 of Wisconsin-Madison.</license.copyrightOwners>
 
-		<scijava-common.version>2.76.0</scijava-common.version>
-		<okhttp.version>3.6.0</okhttp.version>
+		<okhttp.version>4.7.2</okhttp.version>
 
 		<!-- NB: Deploy releases to the SciJava Maven repository. -->
 		<releaseProfiles>deploy-to-scijava</releaseProfiles>
